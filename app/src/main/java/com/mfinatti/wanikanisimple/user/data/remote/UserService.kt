@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.data
+package com.mfinatti.wanikanisimple.user.data.remote
 
 import com.mfinatti.wanikanisimple.data.ResponseDTO
 import retrofit2.Response

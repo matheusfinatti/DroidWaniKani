@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.data
+package com.mfinatti.wanikanisimple.user.data.remote
 
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass

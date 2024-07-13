@@ -46,7 +46,9 @@ fun LoginScreen(
                     setApiKey = setApiKey,
                     submitOnClick = {
                         viewModel.login(apiKey)
-                    })
+                    },
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
 
                 is LoginState.Success ->
                     Text(

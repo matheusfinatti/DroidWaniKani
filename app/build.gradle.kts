@@ -54,13 +54,24 @@ android {
 }
 
 dependencies {
+    // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // Retrofit
     implementation(libs.retrofit)
-    implementation(libs.moshi)
     implementation(libs.retrofit.converter.moshi)
     implementation(libs.okttp.logging.interceptor)
+
+    // Moshi
+    implementation(libs.moshi)
     ksp(libs.moshi.codegen)
+
+    // Room
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

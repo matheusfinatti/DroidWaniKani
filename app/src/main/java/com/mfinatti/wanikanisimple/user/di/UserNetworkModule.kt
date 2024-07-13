@@ -1,6 +1,6 @@
 package com.mfinatti.wanikanisimple.user.di
 
-import com.mfinatti.wanikanisimple.user.data.UserService
+import com.mfinatti.wanikanisimple.user.data.remote.UserService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
