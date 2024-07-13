@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.hilt)
     id("kotlin-kapt") // TODO: Create an alias
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.compose.compiler)
 }
 
 android {
@@ -54,6 +56,11 @@ android {
 dependencies {
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+    implementation(libs.retrofit)
+    implementation(libs.moshi)
+    implementation(libs.retrofit.converter.moshi)
+    implementation(libs.okttp.logging.interceptor)
+    ksp(libs.moshi.codegen)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

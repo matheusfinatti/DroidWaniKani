@@ -10,8 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.mfinatti.wanikanisimple.ui.theme.WaniKaniSimpleTheme
-import com.mfinatti.wanikanisimple.user.LoginScreen
-import com.mfinatti.wanikanisimple.user.UserViewModel
+import com.mfinatti.wanikanisimple.user.ui.LoginScreen
+import com.mfinatti.wanikanisimple.user.ui.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

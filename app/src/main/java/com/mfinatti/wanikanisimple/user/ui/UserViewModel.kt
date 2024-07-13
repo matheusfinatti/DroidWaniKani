@@ -1,16 +1,21 @@
-package com.mfinatti.wanikanisimple.user
+package com.mfinatti.wanikanisimple.user.ui
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.mfinatti.wanikanisimple.Consts
-import com.mfinatti.wanikanisimple.user.ApiKey.Companion.into
+import com.mfinatti.wanikanisimple.user.domain.ApiKey.Companion.into
+import com.mfinatti.wanikanisimple.user.domain.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class UserViewModel @Inject constructor() : ViewModel() {
+class UserViewModel @Inject constructor(
+    private val userRepository: UserRepository,
+) : ViewModel() {
 
     private val _loginState: MutableStateFlow<LoginState> = MutableStateFlow(LoginState.Init)
     val loginState: StateFlow<LoginState> = _loginState
@@ -23,8 +28,16 @@ class UserViewModel @Inject constructor() : ViewModel() {
         }
 
         Log.d(Consts.TAG, "ApiKey: ${apiKey.value}")
-        // TODO: Send request to /user/ to verify the key is valid.
         _loginState.value = LoginState.Loading
-        _loginState.value = LoginState.Success
+
+        viewModelScope.launch {
+            userRepository.getUser(apiKey)
+                .onFailure { error ->
+                    _loginState.value = LoginState.Error(error)
+                }
+                .onSuccess { user ->
+                    _loginState.value = LoginState.Success(user)
+                }
+        }
     }
 }

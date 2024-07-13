@@ -1,8 +1,10 @@
-package com.mfinatti.wanikanisimple.user
+package com.mfinatti.wanikanisimple.user.ui
+
+import com.mfinatti.wanikanisimple.user.domain.User
 
 sealed interface LoginState {
     data object Init : LoginState
     data object Loading : LoginState
     data class Error(val error: Throwable) : LoginState
-    data object Success : LoginState
+    data class Success(val user: User) : LoginState
 }

@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user
+package com.mfinatti.wanikanisimple.user.domain
 
 @JvmInline
 value class ApiKey private constructor(val value: String) {
