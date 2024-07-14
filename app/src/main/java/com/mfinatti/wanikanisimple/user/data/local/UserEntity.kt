@@ -1,7 +1,6 @@
 package com.mfinatti.wanikanisimple.user.data.local
 
 import androidx.room.ColumnInfo
-import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -16,6 +15,4 @@ data class UserEntity(
     val startedAt: String,
     @ColumnInfo("current_vacation_started_at")
     val currentVacationStartedAt: String?,
-    @Embedded
-    val subscription: SubscriptionEntity,
 )

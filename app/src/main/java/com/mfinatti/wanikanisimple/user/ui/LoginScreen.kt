@@ -17,8 +17,8 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun LoginScreen(
-    modifier: Modifier,
     viewModel: UserViewModel,
+    modifier: Modifier = Modifier,
 ) {
     val loginState = viewModel.loginState.collectAsState().value
 

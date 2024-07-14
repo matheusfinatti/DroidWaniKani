@@ -1,6 +1,8 @@
 package com.mfinatti.wanikanisimple.user.data
 
 import android.content.SharedPreferences
+import android.util.Log
+import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.user.data.local.UserDao
 import com.mfinatti.wanikanisimple.user.data.mapper.toEntity
 import com.mfinatti.wanikanisimple.user.data.mapper.toUser
@@ -14,13 +16,22 @@ class UserStorage @Inject constructor(
     private val userDao: UserDao,
 ) {
 
-    fun getUser(apiKey: String): Flow<User> = userDao.getUser(apiKey)
-        .map { entity -> entity.toUser().getOrThrow() }
+    fun getUser(userId: String): Flow<User> = userDao.getUser(userId)
+        .map { entity ->
+            Log.d(Consts.TAG, "$entity")
+            entity.toUser().getOrThrow()
+        }
 
     suspend fun storeUser(user: User) {
         user.toEntity().map { entity ->
             userDao.insertUser(entity)
         }
+        user.subscription.toEntity(user.id).map { entity ->
+            userDao.insertSubscription(entity)
+        }
+        preferences.edit()
+            .putString(Keys.USER_ID, user.id.value)
+            .apply()
     }
 
     fun storeUserApiKey(apiKey: String) {
@@ -32,7 +43,11 @@ class UserStorage @Inject constructor(
     fun getUserApiKey(): String? =
         preferences.getString(Keys.API_KEY, null)
 
+    fun getUserId(): String? =
+        preferences.getString(Keys.USER_ID, null)
+
     private object Keys {
         const val API_KEY = "USER_API_KEY"
+        const val USER_ID = "USER_ID"
     }
 }
