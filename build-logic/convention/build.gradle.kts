@@ -47,6 +47,10 @@ gradlePlugin {
             id = "wk.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        register("androidFeature") {
+            id = "wk.android.feature"
+            implementationClass = "AndroidFeatureConventionPlugin"
+        }
         register("hilt") {
             id = "wk.common.hilt"
             implementationClass = "HiltConventionPlugin"
