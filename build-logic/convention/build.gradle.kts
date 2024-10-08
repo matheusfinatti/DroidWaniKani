@@ -55,5 +55,9 @@ gradlePlugin {
             id = "wk.android.room"
             implementationClass = "AndroidRoomConventionPlugin"
         }
+        register("jvmLibrary") {
+            id = "wk.jvm.library"
+            implementationClass = "JvmLibraryConventionPlugin"
+        }
     }
 }
