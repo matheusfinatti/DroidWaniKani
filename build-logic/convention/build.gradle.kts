@@ -22,6 +22,7 @@ dependencies {
     compileOnly(libs.gradle.kotlin)
     compileOnly(libs.gradle.android.tools.common)
     compileOnly(libs.gradle.ksp)
+    compileOnly(libs.gradle.compose)
 }
 
 tasks {
@@ -33,9 +34,17 @@ tasks {
 
 gradlePlugin {
     plugins {
+        register("androidApplicationCompose") {
+            id = "wk.android.application.compose"
+            implementationClass = "AndroidApplicationComposeConventionPlugin"
+        }
         register("androidLibrary") {
             id = "wk.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("androidLibraryCompose") {
+            id = "wk.android.library.compose"
+            implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
         register("hilt") {
             id = "wk.common.hilt"
