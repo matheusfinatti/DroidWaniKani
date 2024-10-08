@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.ui.theme
+package com.mfinatti.wanikanisimple.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -52,6 +52,7 @@ android {
 dependencies {
     // Core
     implementation(project(":core:network"))
+    implementation(project(":core:ui"))
 
     // Enable core library desugaring
     coreLibraryDesugaring(libs.android.desugarJdkLibs)
@@ -70,10 +71,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.graphics)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.material3)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

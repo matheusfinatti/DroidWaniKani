@@ -25,4 +25,5 @@ rootProject.name = "DroidWaniKani"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":core:network")
+include(":core:ui")
 include(":app")

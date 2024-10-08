@@ -16,7 +16,7 @@ import androidx.navigation.compose.rememberNavController
 import com.mfinatti.wanikanisimple.home.ui.HomeScreen
 import com.mfinatti.wanikanisimple.splash.ui.SplashScreen
 import com.mfinatti.wanikanisimple.splash.ui.SplashViewModel
-import com.mfinatti.wanikanisimple.ui.theme.WaniKaniSimpleTheme
+import com.mfinatti.wanikanisimple.theme.WaniKaniSimpleTheme
 import com.mfinatti.wanikanisimple.user.ui.LoginScreen
 import com.mfinatti.wanikanisimple.user.ui.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
