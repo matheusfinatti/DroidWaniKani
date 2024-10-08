@@ -1,8 +1,6 @@
 plugins {
     id("wk.android.library")
-    alias(libs.plugins.hilt)
-    id("org.jetbrains.kotlin.kapt") // TODO: Create an alias
-    alias(libs.plugins.ksp)
+    id("wk.common.hilt")
 }
 
 android {
@@ -12,7 +10,7 @@ android {
 dependencies {
     // Hilt
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     // Retrofit
     implementation(libs.retrofit)

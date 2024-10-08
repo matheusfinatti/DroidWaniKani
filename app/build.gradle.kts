@@ -1,9 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt)
-    id("kotlin-kapt") // TODO: Create an alias
-    alias(libs.plugins.ksp)
+    id("wk.common.hilt")
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.androidx.room)
 }
@@ -64,10 +62,6 @@ dependencies {
 
     // Enable core library desugaring
     coreLibraryDesugaring(libs.android.desugarJdkLibs)
-
-    // Hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
 
     // Retrofit
     implementation(libs.retrofit)

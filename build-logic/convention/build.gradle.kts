@@ -21,6 +21,7 @@ dependencies {
     compileOnly(libs.gradle.android.plugin)
     compileOnly(libs.gradle.kotlin)
     compileOnly(libs.gradle.android.tools.common)
+    compileOnly(libs.gradle.ksp)
 }
 
 tasks {
@@ -35,6 +36,10 @@ gradlePlugin {
         register("androidLibrary") {
             id = "wk.android.library"
             implementationClass = "AndroidLibraryConventionPlugin"
+        }
+        register("hilt") {
+            id = "wk.common.hilt"
+            implementationClass = "HiltConventionPlugin"
         }
     }
 }
