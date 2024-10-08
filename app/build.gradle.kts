@@ -3,7 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id("wk.common.hilt")
     id("wk.android.application.compose")
-    alias(libs.plugins.androidx.room)
+    id("wk.android.room")
 }
 
 android {
@@ -46,9 +46,6 @@ android {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
     }
-    room {
-        schemaDirectory("$projectDir/schemas")
-    }
 }
 
 dependencies {
@@ -66,11 +63,6 @@ dependencies {
     // Moshi
     implementation(libs.moshi)
     ksp(libs.moshi.codegen)
-
-    // Room
-    implementation(libs.androidx.room.runtime)
-    implementation(libs.androidx.room.ktx)
-    ksp(libs.androidx.room.compiler)
 
     // Navigation
     implementation(libs.androidx.navigation.compose)

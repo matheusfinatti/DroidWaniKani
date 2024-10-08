@@ -23,6 +23,7 @@ dependencies {
     compileOnly(libs.gradle.android.tools.common)
     compileOnly(libs.gradle.ksp)
     compileOnly(libs.gradle.compose)
+    compileOnly(libs.gradle.room)
 }
 
 tasks {
@@ -49,6 +50,10 @@ gradlePlugin {
         register("hilt") {
             id = "wk.common.hilt"
             implementationClass = "HiltConventionPlugin"
+        }
+        register("room") {
+            id = "wk.android.room"
+            implementationClass = "AndroidRoomConventionPlugin"
         }
     }
 }
