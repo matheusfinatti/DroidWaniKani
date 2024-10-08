@@ -19,5 +19,10 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "WaniKaniSimple"
+includeBuild("build-logic")
+
+rootProject.name = "DroidWaniKani"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+include(":core:network")
 include(":app")

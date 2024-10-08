@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.di
+package com.mfinatti.wanikanisimple.core.network.di
 
 import com.squareup.moshi.Moshi
 import dagger.Module

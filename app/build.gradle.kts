@@ -37,6 +37,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "1.8"
@@ -58,6 +59,12 @@ android {
 }
 
 dependencies {
+    // Core
+    implementation(project(":core:network"))
+
+    // Enable core library desugaring
+    coreLibraryDesugaring(libs.android.desugarJdkLibs)
+
     // Hilt
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
