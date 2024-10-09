@@ -1,9 +1,9 @@
 package com.mfinatti.wanikanisimple.user.di
 
 import android.content.SharedPreferences
-import com.mfinatti.wanikanisimple.data.local.AppDatabase
+import com.mfinatti.wanikanisimple.data.AppDatabase
+import com.mfinatti.wanikanisimple.user.UserDao
 import com.mfinatti.wanikanisimple.user.data.UserStorage
-import com.mfinatti.wanikanisimple.user.data.local.UserDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

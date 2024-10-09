@@ -1,6 +1,6 @@
 package com.mfinatti.wanikanisimple.user.data.mapper
 
-import com.mfinatti.wanikanisimple.user.data.local.SubscriptionEntity
+import com.mfinatti.wanikanisimple.user.SubscriptionEntity
 import com.mfinatti.wanikanisimple.user.data.remote.SubscriptionDTO
 import com.mfinatti.wanikanisimple.models.types.Subscription
 import com.mfinatti.wanikanisimple.models.types.SubscriptionType

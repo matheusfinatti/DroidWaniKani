@@ -3,10 +3,10 @@ package com.mfinatti.wanikanisimple.user.data
 import android.content.SharedPreferences
 import android.util.Log
 import com.mfinatti.wanikanisimple.Consts
-import com.mfinatti.wanikanisimple.user.data.local.UserDao
 import com.mfinatti.wanikanisimple.user.data.mapper.toEntity
 import com.mfinatti.wanikanisimple.user.data.mapper.toUser
 import com.mfinatti.wanikanisimple.models.data.User
+import com.mfinatti.wanikanisimple.user.UserDao
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject

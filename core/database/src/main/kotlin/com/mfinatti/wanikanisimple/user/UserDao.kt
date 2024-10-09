@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.data.local
+package com.mfinatti.wanikanisimple.user
 
 import androidx.room.Dao
 import androidx.room.Delete

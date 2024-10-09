@@ -2,7 +2,7 @@ package com.mfinatti.wanikanisimple.di
 
 import android.content.Context
 import androidx.room.Room
-import com.mfinatti.wanikanisimple.data.local.AppDatabase
+import com.mfinatti.wanikanisimple.data.AppDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
