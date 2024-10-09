@@ -1,3 +1,3 @@
 plugins {
-    id("wk.jvm.library")
+    alias(libs.plugins.wk.jvm.library)
 }

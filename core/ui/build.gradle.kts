@@ -1,6 +1,6 @@
 plugins {
-    id("wk.android.library")
-    id("wk.android.library.compose")
+    alias(libs.plugins.wk.android.library)
+    alias(libs.plugins.wk.android.library.compose)
 }
 
 android {

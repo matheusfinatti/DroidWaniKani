@@ -1,6 +1,6 @@
 plugins {
-    id("wk.android.library")
-    id("wk.common.hilt")
+    alias(libs.plugins.wk.android.library)
+    alias(libs.plugins.wk.common.hilt)
 }
 
 android {

@@ -66,3 +66,11 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
+
+# Custom plugins
+wk-android-library = { id = "wk.android.library" }
+wk-android-library-compose = { id = "wk.android.library.compose" }
+wk-android-feature = { id = "wk.android.feature" }
+wk-android-room = { id = "wk.android.room" }
+wk-common-hilt = { id = "wk.common.hilt" }
+wk-jvm-library = { id = "wk.jvm.library" }
