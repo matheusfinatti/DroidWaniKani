@@ -2,8 +2,8 @@ package com.mfinatti.wanikanisimple.user.data
 
 import android.util.Log
 import com.mfinatti.wanikanisimple.Consts
+import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
 import com.mfinatti.wanikanisimple.user.data.mapper.toUser
-import com.mfinatti.wanikanisimple.user.data.remote.UserService
 import com.mfinatti.wanikanisimple.models.types.ApiKey
 import com.mfinatti.wanikanisimple.models.data.User
 import com.mfinatti.wanikanisimple.models.types.UserId
@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 class UserRepositoryImpl @Inject constructor(
-    private val userService: UserService,
+    private val remoteService: RemoteWKDataSource,
     private val userStorage: UserStorage,
 ) : UserRepository {
 
@@ -20,18 +20,7 @@ class UserRepositoryImpl @Inject constructor(
         userStorage.getUser(userId.value)
 
     override suspend fun fetchUser(apiKey: ApiKey): Result<User> =
-        runCatching {
-            val authHeader = "Bearer ${apiKey.value}"
-            val response = userService.getUser(authHeader)
-            if (response.isSuccessful) {
-                val body = response.body() ?: throw IllegalStateException("Empty response body")
-                val user = body.data.toUser().getOrThrow()
-                user
-            } else {
-                val error = response.errorBody()?.string() ?: "Empty error body"
-                throw IllegalStateException("Error fetching user: $error")
-            }
-        }
+        remoteService.getUser(apiKey.value).mapCatching{ it.toUser().getOrThrow() }
 
     override suspend fun storeApiKey(apiKey: ApiKey): Result<Unit> =
         runCatching {

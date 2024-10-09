@@ -1,7 +1,6 @@
 package com.mfinatti.wanikanisimple.user.di
 
 import android.content.SharedPreferences
-import com.mfinatti.wanikanisimple.data.AppDatabase
 import com.mfinatti.wanikanisimple.user.UserDao
 import com.mfinatti.wanikanisimple.user.data.UserStorage
 import dagger.Module
@@ -16,8 +15,4 @@ class UserStorageModule {
     @Provides
     fun provideUserStorage(prefs: SharedPreferences, dao: UserDao): UserStorage =
         UserStorage(prefs, dao)
-
-    @Provides
-    fun provideUserDao(database: AppDatabase): UserDao =
-        database.userDao()
 }

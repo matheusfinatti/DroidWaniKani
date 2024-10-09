@@ -1,5 +1,8 @@
 package com.mfinatti.wanikanisimple.core.network.di
 
+import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
+import com.mfinatti.wanikanisimple.core.network.retrofit.RetrofitWKService
+import com.mfinatti.wanikanisimple.core.network.retrofit.RetrofitWKServiceApi
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -39,4 +42,11 @@ object NetworkModule {
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .build()
+
+    @Provides
+    @Singleton
+    fun provideWKDataSource(retrofit: Retrofit): RemoteWKDataSource =
+        RetrofitWKService(
+            retrofit.create(RetrofitWKServiceApi::class.java)
+        )
 }

@@ -8,6 +8,9 @@ android {
 }
 
 dependencies {
+    // Models
+    implementation(projects.core.models)
+
     // Retrofit
     implementation(libs.retrofit)
     implementation(libs.retrofit.converter.moshi)
@@ -15,4 +18,5 @@ dependencies {
 
     // Moshi
     implementation(libs.moshi)
+    ksp(libs.moshi.codegen)
 }

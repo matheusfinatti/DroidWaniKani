@@ -60,13 +60,6 @@ dependencies {
     // Enable core library desugaring
     coreLibraryDesugaring(libs.android.desugarJdkLibs)
 
-    // Retrofit
-    implementation(libs.retrofit)
-
-    // Moshi
-    implementation(libs.moshi)
-    ksp(libs.moshi.codegen)
-
     // Navigation
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.navigation.ui)

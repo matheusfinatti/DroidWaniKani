@@ -1,7 +1,7 @@
 package com.mfinatti.wanikanisimple.user.data.mapper
 
 import com.mfinatti.wanikanisimple.user.SubscriptionEntity
-import com.mfinatti.wanikanisimple.user.data.remote.SubscriptionDTO
+import com.mfinatti.wanikanisimple.core.network.data.model.SubscriptionDTO
 import com.mfinatti.wanikanisimple.models.types.Subscription
 import com.mfinatti.wanikanisimple.models.types.SubscriptionType
 import com.mfinatti.wanikanisimple.models.types.UserId

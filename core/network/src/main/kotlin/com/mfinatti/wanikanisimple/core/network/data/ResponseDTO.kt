@@ -1,6 +1,6 @@
-package com.mfinatti.wanikanisimple.data
+package com.mfinatti.wanikanisimple.core.network.data
 
-import com.mfinatti.wanikanisimple.user.data.remote.PreferencesDTO
+import com.mfinatti.wanikanisimple.core.network.data.model.PreferencesDTO
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
