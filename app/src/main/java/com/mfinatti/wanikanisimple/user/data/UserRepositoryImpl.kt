@@ -4,9 +4,9 @@ import android.util.Log
 import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.user.data.mapper.toUser
 import com.mfinatti.wanikanisimple.user.data.remote.UserService
-import com.mfinatti.wanikanisimple.user.domain.ApiKey
-import com.mfinatti.wanikanisimple.user.domain.User
-import com.mfinatti.wanikanisimple.user.domain.UserId
+import com.mfinatti.wanikanisimple.models.types.ApiKey
+import com.mfinatti.wanikanisimple.models.data.User
+import com.mfinatti.wanikanisimple.models.types.UserId
 import com.mfinatti.wanikanisimple.user.domain.UserRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject

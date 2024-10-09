@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.domain
+package com.mfinatti.wanikanisimple.models.types
 
 @JvmInline
 value class Level private constructor(val value: Int) {

@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.domain
+package com.mfinatti.wanikanisimple.models.types
 
 enum class SubscriptionType(val maxLevel: Level) {
     free(Level.UnsubscribedMaxLevel),

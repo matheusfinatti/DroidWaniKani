@@ -12,7 +12,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import com.mfinatti.wanikanisimple.Consts
-import com.mfinatti.wanikanisimple.user.domain.User
+import com.mfinatti.wanikanisimple.models.data.User
 
 @Composable
 fun SplashScreen(

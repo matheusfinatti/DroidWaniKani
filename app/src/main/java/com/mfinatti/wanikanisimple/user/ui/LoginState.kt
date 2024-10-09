@@ -1,6 +1,6 @@
 package com.mfinatti.wanikanisimple.user.ui
 
-import com.mfinatti.wanikanisimple.user.domain.User
+import com.mfinatti.wanikanisimple.models.data.User
 
 sealed interface LoginState {
     data object Init : LoginState

@@ -1,5 +1,8 @@
 package com.mfinatti.wanikanisimple.user.domain
 
+import com.mfinatti.wanikanisimple.models.data.User
+import com.mfinatti.wanikanisimple.models.types.ApiKey
+import com.mfinatti.wanikanisimple.models.types.UserId
 import kotlinx.coroutines.flow.Flow
 
 interface UserRepository {

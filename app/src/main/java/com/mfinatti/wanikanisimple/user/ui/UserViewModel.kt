@@ -2,7 +2,7 @@ package com.mfinatti.wanikanisimple.user.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mfinatti.wanikanisimple.user.domain.ApiKey
+import com.mfinatti.wanikanisimple.models.types.ApiKey
 import com.mfinatti.wanikanisimple.user.domain.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mfinatti.wanikanisimple.Consts
-import com.mfinatti.wanikanisimple.user.domain.UserId
+import com.mfinatti.wanikanisimple.models.types.UserId
 import com.mfinatti.wanikanisimple.user.domain.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

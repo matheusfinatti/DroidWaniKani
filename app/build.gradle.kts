@@ -54,6 +54,7 @@ dependencies {
     implementation(projects.core.network)
     implementation(projects.core.ui)
     implementation(projects.core.consts)
+    implementation(projects.core.models)
 
     // Enable core library desugaring
     coreLibraryDesugaring(libs.android.desugarJdkLibs)

@@ -1,5 +1,8 @@
-package com.mfinatti.wanikanisimple.user.domain
+package com.mfinatti.wanikanisimple.models.data
 
+import com.mfinatti.wanikanisimple.models.types.Level
+import com.mfinatti.wanikanisimple.models.types.Subscription
+import com.mfinatti.wanikanisimple.models.types.UserId
 import java.time.Instant
 
 data class User(

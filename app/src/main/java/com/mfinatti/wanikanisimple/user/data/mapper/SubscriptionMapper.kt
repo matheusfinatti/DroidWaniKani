@@ -2,9 +2,9 @@ package com.mfinatti.wanikanisimple.user.data.mapper
 
 import com.mfinatti.wanikanisimple.user.data.local.SubscriptionEntity
 import com.mfinatti.wanikanisimple.user.data.remote.SubscriptionDTO
-import com.mfinatti.wanikanisimple.user.domain.Subscription
-import com.mfinatti.wanikanisimple.user.domain.SubscriptionType
-import com.mfinatti.wanikanisimple.user.domain.UserId
+import com.mfinatti.wanikanisimple.models.types.Subscription
+import com.mfinatti.wanikanisimple.models.types.SubscriptionType
+import com.mfinatti.wanikanisimple.models.types.UserId
 import java.time.Instant
 
 fun SubscriptionDTO.toSubscription() = kotlin.runCatching {
