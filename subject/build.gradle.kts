@@ -4,12 +4,14 @@ plugins {
 }
 
 android {
-    namespace = "wk.core.network"
+    namespace = "wk.subject"
 }
 
 dependencies {
     // Models
     implementation(projects.core.models)
+    implementation(projects.core.database)
+    implementation(projects.core.network)
     implementation(projects.core.consts)
 
     // Retrofit

@@ -10,4 +10,5 @@ dependencies {
     implementation(projects.core.models)
     implementation(projects.core.database)
     implementation(projects.core.consts)
+    implementation(projects.subject)
 }
