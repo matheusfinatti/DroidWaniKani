@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mfinatti.wanikanisimple.Consts
+import com.mfinatti.wanikanisimple.login.domain.UserManager
 import com.mfinatti.wanikanisimple.models.types.UserId
-import com.mfinatti.wanikanisimple.user.domain.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class SplashViewModel @Inject constructor(
-    private val userRepository: UserRepository,
+    private val userManager: UserManager,
 ) : ViewModel() {
 
     private val _loadingState = MutableStateFlow<LoadingState>(LoadingState.Loading)
@@ -24,10 +24,10 @@ class SplashViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            userRepository.getUserId().fold(
+            userManager.getUserId().fold(
                 onSuccess = { userId ->
                     Log.d(Consts.TAG, "On Success $userId")
-                    userRepository.getUser(userId)
+                    userManager.getUser(userId)
                         .catch { error ->
                             _loadingState.update { LoadingState.Error(error) }
                         }.collect { user ->

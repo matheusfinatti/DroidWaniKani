@@ -1,10 +1,11 @@
-package com.mfinatti.wanikanisimple.user.data
+package com.mfinatti.wanikanisimple.login.data
 
 import android.content.SharedPreferences
 import android.util.Log
 import com.mfinatti.wanikanisimple.Consts
-import com.mfinatti.wanikanisimple.user.data.mapper.toEntity
-import com.mfinatti.wanikanisimple.user.data.mapper.toUser
+import com.mfinatti.wanikanisimple.Keys
+import com.mfinatti.wanikanisimple.login.data.mapper.toEntity
+import com.mfinatti.wanikanisimple.login.data.mapper.toUser
 import com.mfinatti.wanikanisimple.models.data.User
 import com.mfinatti.wanikanisimple.user.UserDao
 import kotlinx.coroutines.flow.Flow
@@ -16,7 +17,9 @@ class UserStorage @Inject constructor(
     private val userDao: UserDao,
 ) {
 
-    fun getUser(userId: String): Flow<User> = userDao.getUser(userId)
+    fun getUser(userId: String): Flow<User> = userDao.getUser(
+        userId
+    )
         .map { entity ->
             Log.d(Consts.TAG, "$entity")
             entity.toUser().getOrThrow()
@@ -45,9 +48,4 @@ class UserStorage @Inject constructor(
 
     fun getUserId(): String? =
         preferences.getString(Keys.USER_ID, null)
-
-    private object Keys {
-        const val API_KEY = "USER_API_KEY"
-        const val USER_ID = "USER_ID"
-    }
 }

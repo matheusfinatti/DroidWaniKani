@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.data.mapper
+package com.mfinatti.wanikanisimple.login.data.mapper
 
 import com.mfinatti.wanikanisimple.user.SubscriptionEntity
 import com.mfinatti.wanikanisimple.core.network.data.model.SubscriptionDTO

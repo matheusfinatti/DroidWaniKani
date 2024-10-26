@@ -1,8 +1,8 @@
-package com.mfinatti.wanikanisimple.user.di
+package com.mfinatti.wanikanisimple.login.di
 
 import android.content.SharedPreferences
+import com.mfinatti.wanikanisimple.login.data.UserStorage
 import com.mfinatti.wanikanisimple.user.UserDao
-import com.mfinatti.wanikanisimple.user.data.UserStorage
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

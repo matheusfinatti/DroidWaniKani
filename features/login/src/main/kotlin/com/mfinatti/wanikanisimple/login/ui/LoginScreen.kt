@@ -1,4 +1,4 @@
-package com.mfinatti.wanikanisimple.user.ui
+package com.mfinatti.wanikanisimple.login.ui
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,7 +17,7 @@ import androidx.compose.ui.graphics.Color
 
 @Composable
 fun LoginScreen(
-    viewModel: UserViewModel,
+    viewModel: LoginViewModel,
     modifier: Modifier = Modifier,
 ) {
     val loginState = viewModel.loginState.collectAsState().value

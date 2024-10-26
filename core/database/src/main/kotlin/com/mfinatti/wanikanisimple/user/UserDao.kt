@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -22,6 +23,7 @@ interface UserDao {
     @Delete
     suspend fun deleteSubscription(subscription: SubscriptionEntity)
 
+    @Transaction
     @Query("SELECT * FROM user WHERE id = :id")
     fun getUser(id: String): Flow<UserWithSubscription>
 }

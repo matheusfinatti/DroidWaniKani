@@ -1,6 +1,5 @@
-package com.mfinatti.wanikanisimple.user.data.mapper
+package com.mfinatti.wanikanisimple.login.data.mapper
 
-import com.mfinatti.wanikanisimple.user.UserWithSubscription
 import com.mfinatti.wanikanisimple.core.network.data.model.UserDTO
 import com.mfinatti.wanikanisimple.models.types.Level
 import com.mfinatti.wanikanisimple.models.types.SubscriptionType
@@ -9,7 +8,7 @@ import com.mfinatti.wanikanisimple.models.types.UserId
 import com.mfinatti.wanikanisimple.user.UserEntity
 import java.time.Instant
 
-fun UserWithSubscription.toUser() = kotlin.runCatching {
+fun com.mfinatti.wanikanisimple.user.UserWithSubscription.toUser() = kotlin.runCatching {
     User(
         id = UserId.from(user.id).getOrThrow(),
         username = user.username,

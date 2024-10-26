@@ -14,17 +14,17 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.mfinatti.wanikanisimple.home.ui.HomeScreen
+import com.mfinatti.wanikanisimple.login.ui.LoginScreen
+import com.mfinatti.wanikanisimple.login.ui.LoginViewModel
 import com.mfinatti.wanikanisimple.splash.ui.SplashScreen
 import com.mfinatti.wanikanisimple.splash.ui.SplashViewModel
 import com.mfinatti.wanikanisimple.theme.WaniKaniSimpleTheme
-import com.mfinatti.wanikanisimple.user.ui.LoginScreen
-import com.mfinatti.wanikanisimple.user.ui.UserViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val userViewModel: UserViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
     private val splashViewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,7 +58,7 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        composable("login") { LoginScreen(viewModel = userViewModel) }
+                        composable("login") { LoginScreen(viewModel = loginViewModel) }
                         composable("home/{username}") { navBackStackEntry ->
                             val home = navBackStackEntry.arguments?.getString("username") ?: "empty"
                             HomeScreen(name = home)
