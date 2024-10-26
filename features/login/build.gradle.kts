@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "wk.feature.login"
+    namespace = "com.mfinatti.wanikanisimple.login"
 }
 
 dependencies {

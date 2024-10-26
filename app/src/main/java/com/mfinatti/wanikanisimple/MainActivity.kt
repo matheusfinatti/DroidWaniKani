@@ -39,7 +39,6 @@ class MainActivity : ComponentActivity() {
                     NavHost(
                         navController = navController,
                         startDestination = "splash",
-                        modifier = Modifier.padding(innerPadding)
                     ) {
                         composable(route = "splash") {
                             Log.d(Consts.TAG, "Recomposing Splash")

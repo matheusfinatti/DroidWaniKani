@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="feature_login_button_submit">Submit</string>
+    <string name="feature_login_input_prompt">Enter your WaniKani API Key to authenticate</string>
+    <string name="feature_login_input_placeholder">API Key</string>
+</resources>

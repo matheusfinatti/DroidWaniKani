@@ -4,6 +4,7 @@ import android.util.Log
 import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
 import com.mfinatti.wanikanisimple.login.data.mapper.toUser
+import com.mfinatti.wanikanisimple.login.domain.UserManager
 import com.mfinatti.wanikanisimple.models.data.User
 import com.mfinatti.wanikanisimple.models.types.ApiKey
 import com.mfinatti.wanikanisimple.models.types.UserId
@@ -13,7 +14,7 @@ import javax.inject.Inject
 class UserManagerImpl @Inject constructor(
     private val remoteService: RemoteWKDataSource,
     private val userStorage: UserStorage,
-) : com.mfinatti.wanikanisimple.login.domain.UserManager {
+) : UserManager {
 
     override fun getUser(userId: UserId): Flow<User> =
         userStorage.getUser(userId.value)
