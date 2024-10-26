@@ -10,5 +10,5 @@ interface RemoteWKDataSource {
 
     suspend fun getUser(apiKey: String): Result<UserDTO>
 
-    suspend fun getSubjects(apiKey: String, level: Int): Result<List<SubjectDTO>>
+    suspend fun getSubjects(level: Int): Result<List<SubjectDTO>>
 }

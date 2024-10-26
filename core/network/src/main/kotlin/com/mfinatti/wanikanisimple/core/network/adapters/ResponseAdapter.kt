@@ -45,8 +45,6 @@ class ResponseAdapter(
         val dataJson = jsonMap["data"] as Map<*, *>
         val data = dataAdapter.fromJsonValue(dataJson)
 
-        Log.d(Consts.TAG, "Data? $data")
-
         val preferences = jsonMap["preferences"] as? PreferencesDTO
 
         return ResponseDTO(

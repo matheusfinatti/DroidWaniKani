@@ -1,16 +1,13 @@
 package com.mfinatti.wanikanisimple.core.network.di
 
+import android.content.SharedPreferences
 import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
 import com.mfinatti.wanikanisimple.core.network.adapters.ResponseAdapter
-import com.mfinatti.wanikanisimple.core.network.data.model.subject.KanaVocabularyDTO
-import com.mfinatti.wanikanisimple.core.network.data.model.subject.KanjiDTO
-import com.mfinatti.wanikanisimple.core.network.data.model.subject.RadicalDTO
-import com.mfinatti.wanikanisimple.core.network.data.model.subject.SubjectDTO
-import com.mfinatti.wanikanisimple.core.network.data.model.subject.VocabularyDTO
+import com.mfinatti.wanikanisimple.core.network.interceptors.ApiKeyInterceptor
+import com.mfinatti.wanikanisimple.core.network.interceptors.ApiVersionInterceptor
 import com.mfinatti.wanikanisimple.core.network.retrofit.RetrofitWKService
 import com.mfinatti.wanikanisimple.core.network.retrofit.RetrofitWKServiceApi
 import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,12 +24,17 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient {
+    fun provideOkHttpClient(prefs: SharedPreferences): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
+        val apiKeyInterceptor = ApiKeyInterceptor(prefs)
+        val apiVersionInterceptor = ApiVersionInterceptor()
+
         return OkHttpClient.Builder()
             .addInterceptor(loggingInterceptor)
+            .addInterceptor(apiKeyInterceptor)
+            .addInterceptor(apiVersionInterceptor)
             .build()
     }
 
