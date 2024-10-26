@@ -59,6 +59,7 @@ dependencies {
 
     // Features
     implementation(projects.features.login)
+    implementation(projects.features.home)
 
     // Enable core library desugaring
     coreLibraryDesugaring(libs.android.desugarJdkLibs)
