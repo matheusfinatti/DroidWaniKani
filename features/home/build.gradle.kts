@@ -10,4 +10,6 @@ dependencies {
     implementation(projects.core.models)
     implementation(projects.core.database)
     implementation(projects.core.consts)
+
+    testImplementation(libs.coroutines.test)
 }
