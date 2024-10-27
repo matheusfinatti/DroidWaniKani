@@ -20,4 +20,7 @@ dependencies {
     // Moshi
     implementation(libs.moshi)
     ksp(libs.moshi.codegen)
+
+    // Test
+    implementation(libs.mockwebserver)
 }
