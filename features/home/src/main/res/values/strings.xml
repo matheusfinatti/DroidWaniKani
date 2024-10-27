@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="feature_home_lesson_today">Today\'s</string>
-    <string name="feature_home_lesson_title">Lessons</string>
-    <string name="feature_home_lesson_desc">We cooked up these lessons just for you.</string>
-    <string name="feature_home_lesson_button_start">Start Lessons</string>
+    <string name="features_home_lesson_today">Today\'s</string>
+    <string name="features_home_lesson_title">Lessons</string>
+    <string name="features_home_lesson_desc">We cooked up these lessons just for you.</string>
+    <string name="features_home_lesson_button_start">Start Lessons</string>
 
-    <string name="feature_home_review_title">Review</string>
-    <string name="feature_home_review_desc">Review these items to level them up!</string>
-    <string name="feature_home_review_button_start">Start Reviews</string>
+    <string name="features_home_review_title">Review</string>
+    <string name="features_home_review_desc">Review these items to level them up!</string>
+    <string name="features_home_review_button_start">Start Reviews</string>
 </resources>

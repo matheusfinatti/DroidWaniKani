@@ -92,7 +92,7 @@ fun CallToActionBox(
 fun LessonsPreview() {
     CallToActionBox(
         primaryColor = Kanji,
-        image = R.drawable.feature_home_lesson,
+        image = R.drawable.features_home_lesson,
         numberOfItems = 9,
         dateText = "Today",
         typeOfWork = "Lessons",
@@ -107,7 +107,7 @@ fun LessonsPreview() {
 fun ReviewsPreview() {
     CallToActionBox(
         primaryColor = Radical,
-        image = R.drawable.feature_home_review,
+        image = R.drawable.features_home_review,
         numberOfItems = 19,
         dateText = "",
         typeOfWork = "Reviews",

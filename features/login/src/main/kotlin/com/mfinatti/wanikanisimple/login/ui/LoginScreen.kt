@@ -75,14 +75,14 @@ private fun LoginView(
         modifier = modifier
             .fillMaxSize()
             .paint(
-                painter = painterResource(R.drawable.feature_login_background),
+                painter = painterResource(R.drawable.features_login_background),
                 sizeToIntrinsics = true,
                 contentScale = ContentScale.FillBounds,
             )
 
     ) {
         Image(
-            painter = painterResource(R.drawable.feature_login_wanikani_logo),
+            painter = painterResource(R.drawable.features_login_wanikani_logo),
             contentDescription = null,
             alignment = Alignment.TopCenter,
             modifier = Modifier

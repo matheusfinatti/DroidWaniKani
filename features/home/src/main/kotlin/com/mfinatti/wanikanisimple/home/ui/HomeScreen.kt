@@ -58,12 +58,12 @@ fun LessonBox(
 ) {
     CallToActionBox(
         primaryColor = Kanji,
-        image = R.drawable.feature_home_lesson,
+        image = R.drawable.features_home_lesson,
         numberOfItems = numberOfLessons,
-        dateText = stringResource(id = R.string.feature_home_lesson_today),
-        typeOfWork = stringResource(id = R.string.feature_home_lesson_title),
-        description = stringResource(id = R.string.feature_home_lesson_desc),
-        buttonText = stringResource(id = R.string.feature_home_lesson_button_start),
+        dateText = stringResource(id = R.string.features_home_lesson_today),
+        typeOfWork = stringResource(id = R.string.features_home_lesson_title),
+        description = stringResource(id = R.string.features_home_lesson_desc),
+        buttonText = stringResource(id = R.string.features_home_lesson_button_start),
         onButtonClick = {},
         modifier = modifier,
     )
@@ -76,12 +76,12 @@ fun ReviewBox(
 ) {
     CallToActionBox(
         primaryColor = Radical,
-        image = R.drawable.feature_home_review,
+        image = R.drawable.features_home_review,
         numberOfItems = numberOfReviews,
         dateText = null,
-        typeOfWork = stringResource(id = R.string.feature_home_review_title),
-        description = stringResource(id = R.string.feature_home_review_desc),
-        buttonText = stringResource(id = R.string.feature_home_review_button_start),
+        typeOfWork = stringResource(id = R.string.features_home_review_title),
+        description = stringResource(id = R.string.features_home_review_desc),
+        buttonText = stringResource(id = R.string.features_home_review_button_start),
         onButtonClick = {},
         modifier = modifier,
     )
