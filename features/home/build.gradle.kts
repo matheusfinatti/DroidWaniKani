@@ -12,4 +12,5 @@ dependencies {
     implementation(projects.core.consts)
 
     testImplementation(libs.coroutines.test)
+    testImplementation(libs.turbine)
 }
