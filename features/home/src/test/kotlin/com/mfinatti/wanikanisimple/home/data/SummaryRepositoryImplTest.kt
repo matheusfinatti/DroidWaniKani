@@ -8,6 +8,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class SummaryRepositoryImplTest {
@@ -19,7 +20,7 @@ class SummaryRepositoryImplTest {
     )
 
     @Test
-    fun `when fetching summary, it should return a successful result of the summary`() = runTest {
+    fun whenFetchingSummary_itShouldReturnAValidSummary() = runTest {
         // Arrange
         val summaryDto = SummaryDTO(
             lessons = emptyList(),
@@ -33,6 +34,20 @@ class SummaryRepositoryImplTest {
 
         // Assert
         assertTrue(result.isSuccess)
-        assertEquals(summaryDto.toSummary().getOrThrow(), result.getOrThrow())
+        assertEquals(summaryDto.toSummary().getOrThrow(), result.getOrNull())
+    }
+
+    @Test
+    fun whenFetchingSummary_givenItFails_itShouldReturnAnError() = runTest {
+        // Arrange
+        val exception = Exception("Error")
+        coEvery { remoteDataSource.getSummary() } returns Result.failure(exception)
+
+        // Act
+        val result = sut.fetchSummary()
+
+        // Assert
+        assertFalse(result.isSuccess)
+        assertEquals(exception, result.exceptionOrNull())
     }
 }
