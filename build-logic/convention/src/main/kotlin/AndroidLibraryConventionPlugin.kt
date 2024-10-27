@@ -29,6 +29,8 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
 
             dependencies {
                 add("implementation", libs.findLibrary("androidx.core.ktx").get())
+
+                add("testImplementation", libs.findLibrary("mockk").get())
             }
         }
     }

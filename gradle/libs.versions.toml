@@ -19,6 +19,7 @@ loggingInterceptor = "4.12.0"
 room = "2.6.1"
 navigation = "2.8.2"
 androidDesugarJdkLibs = "2.1.2"
+mockk = "1.13.13"
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -51,12 +52,13 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 androidx-room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigation" }
 androidx-navigation-ui = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 
 # Plugins
 gradle-android-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
 gradle-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 gradle-android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
-gradle-ksp =  { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+gradle-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradle-compose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 gradle-room = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
 
@@ -71,7 +73,7 @@ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "
 androidx-room = { id = "androidx.room", version.ref = "room" }
 
 # Custom plugins
-wk-android-application-compose  = { id = "wk.android.application.compose" }
+wk-android-application-compose = { id = "wk.android.application.compose" }
 wk-android-library = { id = "wk.android.library" }
 wk-android-library-compose = { id = "wk.android.library.compose" }
 wk-android-feature = { id = "wk.android.feature" }
