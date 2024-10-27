@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-    namespace = "wk.feature.home"
+    namespace = "com.mfinatti.wanikanisimple.home"
 }
 
 dependencies {

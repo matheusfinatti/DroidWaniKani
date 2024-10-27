@@ -24,7 +24,6 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val loginViewModel: LoginViewModel by viewModels()
     private val splashViewModel: SplashViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -57,10 +56,9 @@ class MainActivity : ComponentActivity() {
                                 }
                             )
                         }
-                        composable("login") { LoginScreen(viewModel = loginViewModel) }
-                        composable("home/{username}") { navBackStackEntry ->
-                            val home = navBackStackEntry.arguments?.getString("username") ?: "empty"
-                            HomeScreen(name = home)
+                        composable("login") { LoginScreen(navController) }
+                        composable("home") { navBackStackEntry ->
+                            HomeScreen()
                         }
                     }
                 }

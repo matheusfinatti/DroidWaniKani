@@ -7,6 +7,7 @@ import com.mfinatti.wanikanisimple.core.network.data.CollectionDTO
 import com.mfinatti.wanikanisimple.core.network.data.ResponseDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.UserDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.subject.SubjectDTO
+import com.mfinatti.wanikanisimple.core.network.data.model.summary.SummaryDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Header
@@ -23,6 +24,9 @@ internal interface RetrofitWKServiceApi {
     suspend fun getSubjects(
         @Query("levels") level: Int,
     ): Response<CollectionDTO<ResponseDTO<SubjectDTO>>>
+
+    @GET("summary")
+    suspend fun getSummary(): Response<ResponseDTO<SummaryDTO>>
 }
 
 internal class RetrofitWKService(
@@ -54,6 +58,19 @@ internal class RetrofitWKService(
                 val error = response.errorBody()?.string() ?: "Empty error body"
                 Log.i(Consts.TAG, "Error: $error")
                 throw IllegalStateException("Error fetching subjects: $error")
+            }
+        }
+
+    override suspend fun getSummary(): Result<SummaryDTO> =
+        runCatching {
+            val response = wkApi.getSummary()
+            if (response.isSuccessful) {
+                val body = response.body() ?: throw IllegalStateException("Empty response body")
+                val summary = body.data
+                summary
+            } else {
+                val error = response.errorBody()?.string() ?: "Empty error body"
+                throw IllegalStateException("Error fetching summary: $error")
             }
         }
 }

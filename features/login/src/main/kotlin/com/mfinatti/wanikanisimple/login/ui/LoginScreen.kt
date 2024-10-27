@@ -36,11 +36,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.mfinatti.wanikanisimple.login.R
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel,
+    navController: NavController,
+    viewModel: LoginViewModel = hiltViewModel<LoginViewModel>(),
     modifier: Modifier = Modifier,
 ) {
     val loginState = viewModel.loginState.collectAsState().value
@@ -49,8 +52,10 @@ fun LoginScreen(
         mutableStateOf("")
     }
 
-    LoginView(modifier, loginState, apiKey, setApiKey) {
+    LoginView(modifier, loginState, apiKey, setApiKey, onSubmitClicked = {
         viewModel.login(apiKey)
+    }) {
+        navController.navigate("home")
     }
 }
 
@@ -61,6 +66,7 @@ private fun LoginView(
     apiKey: String,
     setApiKey: (String) -> Unit,
     onSubmitClicked: () -> Unit,
+    onLoginSuccess: () -> Unit,
 ) {
     Box(
         modifier = modifier
@@ -109,11 +115,7 @@ private fun LoginView(
                     modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
-                is LoginState.Success ->
-                    Text(
-                        text = "Welcome, ${loginState.user.username}",
-                        modifier = Modifier.align(Alignment.CenterHorizontally)
-                    )
+                is LoginState.Success -> onLoginSuccess()
             }
         }
     }
@@ -189,7 +191,8 @@ fun LoginViewPreviewInit() {
         loginState = LoginState.Init,
         apiKey = "",
         setApiKey = {},
-        onSubmitClicked = {}
+        onSubmitClicked = {},
+        onLoginSuccess = {},
     )
 }
 
@@ -201,6 +204,7 @@ fun LoginViewPreviewError() {
         loginState = LoginState.Error(error = IllegalStateException("Something went wrong!")),
         apiKey = "",
         setApiKey = {},
-        onSubmitClicked = {}
+        onSubmitClicked = {},
+        onLoginSuccess = {},
     )
 }
