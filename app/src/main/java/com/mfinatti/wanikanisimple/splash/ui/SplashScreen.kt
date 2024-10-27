@@ -18,16 +18,16 @@ import com.mfinatti.wanikanisimple.models.data.User
 fun SplashScreen(
     viewModel: SplashViewModel,
     onNavToLogin: () -> Unit,
-    onNavToHome: (User) -> Unit,
+    onNavToHome: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val loadingState by viewModel.loadingState.collectAsState()
     Log.d(Consts.TAG, "loadingState $loadingState")
 
     LaunchedEffect(loadingState) {
-        when (val state = loadingState) {
+        when (loadingState) {
             LoadingState.NotLoggedIn -> onNavToLogin()
-            is LoadingState.Loaded -> onNavToHome(state.user)
+            is LoadingState.Loaded -> onNavToHome()
             else -> Unit
         }
     }

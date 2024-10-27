@@ -2,6 +2,7 @@
 
 package com.mfinatti.wanikanisimple.login.ui
 
+import android.util.Log
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -23,7 +24,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -36,26 +36,27 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.login.R
+import androidx.compose.runtime.getValue
 
 @Composable
 fun LoginScreen(
-    navController: NavController,
-    viewModel: LoginViewModel = hiltViewModel<LoginViewModel>(),
-    modifier: Modifier = Modifier,
+    viewModel: LoginViewModel,
+    onLoginSuccess: () -> Unit,
 ) {
-    val loginState = viewModel.loginState.collectAsState().value
+    Log.d(Consts.TAG, "LoginScreen Composition")
+    val loginState by viewModel.loginState.collectAsStateWithLifecycle()
 
     val (apiKey, setApiKey) = remember {
         mutableStateOf("")
     }
 
-    LoginView(modifier, loginState, apiKey, setApiKey, onSubmitClicked = {
+    LoginView(Modifier, loginState, apiKey, setApiKey, onSubmitClicked = {
         viewModel.login(apiKey)
     }) {
-        navController.navigate("home")
+       onLoginSuccess()
     }
 }
 
@@ -68,6 +69,8 @@ private fun LoginView(
     onSubmitClicked: () -> Unit,
     onLoginSuccess: () -> Unit,
 ) {
+    Log.d(Consts.TAG, "LoginView Composition")
+
     Box(
         modifier = modifier
             .fillMaxSize()
@@ -97,6 +100,7 @@ private fun LoginView(
                 )
                 .padding(8.dp)
         ) {
+            Log.d(Consts.TAG, "LoginState: $loginState")
             when (loginState) {
                 is LoginState.Init -> LoginInput(
                     errorMessage = null,
