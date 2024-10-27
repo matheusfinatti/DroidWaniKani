@@ -1,9 +1,7 @@
 package com.mfinatti.wanikanisimple.home.ui
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.home.domain.GetSummaryUseCase
 import com.mfinatti.wanikanisimple.home.domain.state.SummaryState
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -28,11 +26,10 @@ class HomeViewModel @Inject constructor(
     val summaryState: StateFlow<SummaryState> = _summaryState
 
     init {
-        Log.d(Consts.TAG, "Init HomeViewModel $this")
         viewModelScope.launch {
-//            getSummaryUseCase.execute().collect { state ->
-//                _summaryState.value = state
-//            }
+            getSummaryUseCase.execute().collect { state ->
+                _summaryState.value = state
+            }
         }
     }
 }
