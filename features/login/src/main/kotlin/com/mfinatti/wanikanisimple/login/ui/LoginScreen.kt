@@ -40,10 +40,11 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.login.R
 import androidx.compose.runtime.getValue
+import androidx.hilt.navigation.compose.hiltViewModel
 
 @Composable
 fun LoginScreen(
-    viewModel: LoginViewModel,
+    viewModel: LoginViewModel = hiltViewModel(),
     onLoginSuccess: () -> Unit,
 ) {
     Log.d(Consts.TAG, "LoginScreen Composition")

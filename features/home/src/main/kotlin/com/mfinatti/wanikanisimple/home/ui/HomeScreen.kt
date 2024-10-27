@@ -16,6 +16,7 @@ import com.mfinatti.wanikanisimple.theme.Radical
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.mfinatti.wanikanisimple.home.domain.state.SummaryState
 import com.mfinatti.wanikanisimple.models.data.Lesson
 import com.mfinatti.wanikanisimple.models.data.Review
@@ -25,7 +26,7 @@ import java.time.Instant
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeViewModel,
+    viewModel: HomeViewModel = hiltViewModel(),
     modifier: Modifier = Modifier,
 ) {
     val summaryState by viewModel.summaryState.collectAsStateWithLifecycle()

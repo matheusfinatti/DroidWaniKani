@@ -11,14 +11,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.models.data.User
 
 @Composable
 fun SplashScreen(
-    viewModel: SplashViewModel,
     onNavToLogin: () -> Unit,
     onNavToHome: () -> Unit,
+    viewModel: SplashViewModel = hiltViewModel(),
     modifier: Modifier = Modifier,
 ) {
     val loadingState by viewModel.loadingState.collectAsState()
