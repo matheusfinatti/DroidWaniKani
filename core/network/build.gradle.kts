@@ -23,4 +23,5 @@ dependencies {
 
     // Test
     implementation(libs.mockwebserver)
+    implementation(libs.coroutines.test)
 }
