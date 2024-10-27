@@ -19,13 +19,13 @@ fun WKNavHost(
     NavHost(
         navController = navController,
         startDestination = Destinations.Splash,
-        modifier = modifier,
+        modifier = Modifier,
     ) {
         splashScreen(
             onLoggedIn = navController::navigateToHome,
             onLoggedOut = navController::navigateToLogin,
         )
         loginScreen(onLoginSuccess = navController::navigateToHome)
-        homeScreen()
+        homeScreen(modifier)
     }
 }

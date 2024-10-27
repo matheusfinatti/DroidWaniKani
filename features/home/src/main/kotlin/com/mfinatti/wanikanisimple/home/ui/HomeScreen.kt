@@ -26,8 +26,8 @@ import java.time.Instant
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier,
 ) {
     val summaryState by viewModel.summaryState.collectAsStateWithLifecycle()
 

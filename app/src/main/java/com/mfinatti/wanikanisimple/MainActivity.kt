@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             WaniKaniSimpleTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    WKNavHost()
+                    WKNavHost(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
