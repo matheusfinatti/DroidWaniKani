@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.wk.detekt)
     alias(libs.plugins.wk.common.hilt)
     alias(libs.plugins.wk.android.application.compose)
     alias(libs.plugins.wk.android.room)

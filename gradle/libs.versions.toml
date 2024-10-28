@@ -23,6 +23,8 @@ mockk = "1.13.13"
 coroutines = "1.9.0"
 mockwebserver = "4.12.0"
 turbine = "1.2.0"
+detekt = "1.23.7"
+detektCompose = "0.3.0"
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -59,6 +61,7 @@ mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
 coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines" }
 mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "mockwebserver" }
 turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine" }
+detekt-compose = { group = "io.nlopez.compose.rules", name="detekt", version.ref = "detektCompose" }
 
 # Plugins
 gradle-android-plugin = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -67,6 +70,7 @@ gradle-android-tools-common = { group = "com.android.tools", name = "common", ve
 gradle-ksp = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
 gradle-compose = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 gradle-room = { group = "androidx.room", name = "room-gradle-plugin", version.ref = "room" }
+gradle-detekt = { group = "io.gitlab.arturbosch.detekt", name = "detekt-gradle-plugin", version.ref = "detekt" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -77,6 +81,7 @@ ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 androidx-room = { id = "androidx.room", version.ref = "room" }
+detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 
 # Custom plugins
 wk-android-application-compose = { id = "wk.android.application.compose" }
@@ -86,3 +91,4 @@ wk-android-feature = { id = "wk.android.feature" }
 wk-android-room = { id = "wk.android.room" }
 wk-common-hilt = { id = "wk.common.hilt" }
 wk-jvm-library = { id = "wk.jvm.library" }
+wk-detekt = { id = "wk.detekt" }

@@ -24,6 +24,7 @@ dependencies {
     compileOnly(libs.gradle.ksp)
     compileOnly(libs.gradle.compose)
     compileOnly(libs.gradle.room)
+    compileOnly(libs.gradle.detekt)
 }
 
 tasks {
@@ -62,6 +63,10 @@ gradlePlugin {
         register("jvmLibrary") {
             id = "wk.jvm.library"
             implementationClass = "JvmLibraryConventionPlugin"
+        }
+        register("detekt") {
+            id = "wk.detekt"
+            implementationClass = "DetektConventionPlugin"
         }
     }
 }
