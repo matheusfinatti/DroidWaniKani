@@ -54,22 +54,24 @@ fun LoginScreen(
         mutableStateOf("")
     }
 
-    LoginView(Modifier, loginState, apiKey, setApiKey, onSubmitClicked = {
-        viewModel.login(apiKey)
-    }) {
-       onLoginSuccess()
-    }
+    LoginView(
+        loginState = loginState,
+        apiKey = apiKey,
+        setApiKey = setApiKey,
+        onSubmitClicked = { viewModel.login(apiKey) },
+        onLoginSuccess = onLoginSuccess
+    )
 }
 
 @Composable
 private fun LoginView(
-    modifier: Modifier,
     loginState: LoginState,
     apiKey: String,
-    setApiKey: (String) -> Unit,
-    onSubmitClicked: () -> Unit,
-    onLoginSuccess: () -> Unit,
-) {
+    modifier: Modifier = Modifier,
+    setApiKey: (String) -> Unit = {},
+    onSubmitClicked: () -> Unit = {},
+    onLoginSuccess: () -> Unit = {},
+)  {
     Log.d(Consts.TAG, "LoginView Composition")
 
     Box(
@@ -99,7 +101,8 @@ private fun LoginView(
                     color = Color.White.copy(alpha = 0.5f),
                     shape = RoundedCornerShape(16.dp)
                 )
-                .padding(8.dp)
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Log.d(Consts.TAG, "LoginState: $loginState")
             when (loginState) {
@@ -108,7 +111,6 @@ private fun LoginView(
                     apiKey,
                     setApiKey,
                     submitOnClick = onSubmitClicked,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
                 is LoginState.Loading -> CircularProgressIndicator()
@@ -117,7 +119,6 @@ private fun LoginView(
                     apiKey = apiKey,
                     setApiKey = setApiKey,
                     submitOnClick = onSubmitClicked,
-                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
 
                 is LoginState.Success -> onLoginSuccess()
@@ -132,19 +133,16 @@ private fun ColumnScope.LoginInput(
     apiKey: String,
     setApiKey: (String) -> Unit,
     submitOnClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Text(
         text = stringResource(R.string.feature_login_input_prompt),
-        modifier = modifier,
         fontWeight = FontWeight.Bold,
     )
-    ApiKeyInput(apiKey, setApiKey, modifier = modifier)
-    ErrorLine(errorMessage = errorMessage ?: "", modifier = modifier)
-    Spacer(modifier.size(16.dp))
+    ApiKeyInput(apiKey, setApiKey)
+    ErrorLine(errorMessage = errorMessage ?: "")
+    Spacer(Modifier.size(16.dp))
     Button(
         onClick = submitOnClick,
-        modifier = modifier,
     ) {
         Text(stringResource(R.string.feature_login_button_submit))
     }
@@ -190,7 +188,7 @@ private fun ErrorLine(
 
 @Preview(showBackground = true)
 @Composable
-fun LoginViewPreviewInit() {
+private fun LoginViewPreviewInit() {
     LoginView(
         modifier = Modifier,
         loginState = LoginState.Init,
@@ -203,7 +201,7 @@ fun LoginViewPreviewInit() {
 
 @Preview(showBackground = true)
 @Composable
-fun LoginViewPreviewError() {
+private fun LoginViewPreviewError() {
     LoginView(
         modifier = Modifier,
         loginState = LoginState.Error(error = IllegalStateException("Something went wrong!")),

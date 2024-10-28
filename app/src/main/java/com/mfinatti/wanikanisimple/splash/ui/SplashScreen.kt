@@ -17,10 +17,10 @@ import com.mfinatti.wanikanisimple.models.data.User
 
 @Composable
 fun SplashScreen(
-    onNavToLogin: () -> Unit,
-    onNavToHome: () -> Unit,
-    viewModel: SplashViewModel = hiltViewModel(),
     modifier: Modifier = Modifier,
+    viewModel: SplashViewModel = hiltViewModel(),
+    onNavToLogin: () -> Unit = {},
+    onNavToHome: () -> Unit = {},
 ) {
     val loadingState by viewModel.loadingState.collectAsState()
     Log.d(Consts.TAG, "loadingState $loadingState")

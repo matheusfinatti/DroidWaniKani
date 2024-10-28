@@ -14,5 +14,4 @@ value class Level private constructor(val value: Int) {
         val UnsubscribedMaxLevel = Level(3)
         val SubscribedMaxLevel = Level(60)
     }
-
 }

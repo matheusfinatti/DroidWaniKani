@@ -1,3 +1,4 @@
+@file:Suppress("MatchingDeclarationName")
 package com.mfinatti.wanikanisimple.core.network
 
 import com.mfinatti.wanikanisimple.core.network.adapters.ResponseAdapter

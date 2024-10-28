@@ -27,7 +27,7 @@ import java.time.Instant
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
 ) {
     val summaryState by viewModel.summaryState.collectAsStateWithLifecycle()
@@ -91,7 +91,7 @@ fun ReviewBox(
 
 @Composable
 @Preview
-fun TodaySummaryPreview() {
+private fun TodaySummaryPreview() {
     TodaySummary(
         summary = Summary(
             lessons = listOf(Lesson(Instant.now(), subjectIds = listOf(SubjectId.from(1).getOrThrow()))),

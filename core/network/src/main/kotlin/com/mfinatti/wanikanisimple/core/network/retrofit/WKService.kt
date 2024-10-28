@@ -38,12 +38,12 @@ internal class RetrofitWKService(
             val authHeader = "Bearer $apiKey"
             val response = wkApi.getUser(authHeader)
             if (response.isSuccessful) {
-                val body = response.body() ?: throw IllegalStateException("Empty response body")
+                val body = response.body() ?: error("Empty response body")
                 val user = body.data
                 user
             } else {
                 val error = response.errorBody()?.string() ?: "Empty error body"
-                throw IllegalStateException("Error fetching user: $error")
+                error("Error fetching user: $error")
             }
         }
 
@@ -51,13 +51,13 @@ internal class RetrofitWKService(
         runCatching {
             val response = wkApi.getSubjects(level)
             if (response.isSuccessful) {
-                val body = response.body() ?: throw IllegalStateException("Empty response body")
+                val body = response.body() ?: error("Empty response body")
                 val subjects = body.data.map { it.data }
                 subjects
             } else {
                 val error = response.errorBody()?.string() ?: "Empty error body"
                 Log.i(Consts.TAG, "Error: $error")
-                throw IllegalStateException("Error fetching subjects: $error")
+                error("Error fetching subjects: $error")
             }
         }
 
@@ -65,12 +65,12 @@ internal class RetrofitWKService(
         runCatching {
             val response = wkApi.getSummary()
             if (response.isSuccessful) {
-                val body = response.body() ?: throw IllegalStateException("Empty response body")
+                val body = response.body() ?: error("Empty response body")
                 val summary = body.data
                 summary
             } else {
                 val error = response.errorBody()?.string() ?: "Empty error body"
-                throw IllegalStateException("Error fetching summary: $error")
+                error("Error fetching summary: $error")
             }
         }
 }

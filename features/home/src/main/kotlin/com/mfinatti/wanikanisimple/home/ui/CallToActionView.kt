@@ -51,7 +51,7 @@ fun CallToActionBox(
         ) {
             Column {
                 Row {
-                    Column(modifier.weight(0.5f)) {
+                    Column(Modifier.weight(0.5f)) {
                         Text(dateText ?: "")
                         Row {
                             Text(
@@ -72,7 +72,7 @@ fun CallToActionBox(
                         Spacer(modifier = Modifier.size(8.dp))
                         Text(description)
                     }
-                    Column(modifier.weight(0.3f)) {
+                    Column(Modifier.weight(0.3f)) {
                         Image(painterResource(image), contentDescription = null)
                     }
                 }
@@ -89,7 +89,7 @@ fun CallToActionBox(
 
 @Composable
 @Preview
-fun LessonsPreview() {
+private fun LessonsPreview() {
     CallToActionBox(
         primaryColor = Kanji,
         image = R.drawable.features_home_lesson,
@@ -104,7 +104,7 @@ fun LessonsPreview() {
 
 @Composable
 @Preview
-fun ReviewsPreview() {
+private fun ReviewsPreview() {
     CallToActionBox(
         primaryColor = Radical,
         image = R.drawable.features_home_review,
