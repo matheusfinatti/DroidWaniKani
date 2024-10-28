@@ -2,6 +2,7 @@ package com.mfinatti.wanikanisimple.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.mfinatti.wanikanisimple.Destinations
@@ -13,9 +14,9 @@ import com.mfinatti.wanikanisimple.splash.navigation.splashScreen
 
 @Composable
 fun WKNavHost(
+    navController: NavHostController,
     modifier: Modifier = Modifier,
 ) {
-    val navController = rememberNavController()
     NavHost(
         navController = navController,
         startDestination = Destinations.Splash,
