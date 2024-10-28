@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.wk.android.library)
+    alias(libs.plugins.wk.android.library.jacoco)
     alias(libs.plugins.wk.common.hilt)
 }
 

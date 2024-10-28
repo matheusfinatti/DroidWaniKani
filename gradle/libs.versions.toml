@@ -25,6 +25,7 @@ mockwebserver = "4.12.0"
 turbine = "1.2.0"
 detekt = "1.23.7"
 detektCompose = "0.3.0"
+jacoco = "0.8.7"
 
 [libraries]
 android-desugarJdkLibs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "androidDesugarJdkLibs" }
@@ -87,6 +88,7 @@ detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 wk-android-application-compose = { id = "wk.android.application.compose" }
 wk-android-library = { id = "wk.android.library" }
 wk-android-library-compose = { id = "wk.android.library.compose" }
+wk-android-library-jacoco = { id = "wk.android.library.jacoco" }
 wk-android-feature = { id = "wk.android.feature" }
 wk-android-room = { id = "wk.android.room" }
 wk-common-hilt = { id = "wk.common.hilt" }

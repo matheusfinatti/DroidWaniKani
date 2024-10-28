@@ -48,6 +48,10 @@ gradlePlugin {
             id = "wk.android.library.compose"
             implementationClass = "AndroidLibraryComposeConventionPlugin"
         }
+        register("androidLibraryJacoco") {
+            id = "wk.android.library.jacoco"
+            implementationClass = "AndroidLibraryJacocoConventionPlugin"
+        }
         register("androidFeature") {
             id = "wk.android.feature"
             implementationClass = "AndroidFeatureConventionPlugin"
