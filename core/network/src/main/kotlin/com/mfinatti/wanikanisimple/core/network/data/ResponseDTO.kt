@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
 data class ResponseDTO<T>(
+    val id: Int?,
     @Json(name = "object")
     val obj: String,
     val url: String,

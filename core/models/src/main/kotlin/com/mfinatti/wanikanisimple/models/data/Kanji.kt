@@ -14,7 +14,7 @@ data class Kanji(
     val lessonPosition: Int,
     val level: Level,
     val meaningMnemonic: String,
-    val meaning: List<Meaning>,
+    val meanings: List<Meaning>,
     val slug: String,
     val spacedRepetitionSystemId: Int,
     val amalgamationSubjectIds: List<SubjectId>,

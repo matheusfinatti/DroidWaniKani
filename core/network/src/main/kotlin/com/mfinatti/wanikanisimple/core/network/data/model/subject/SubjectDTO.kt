@@ -16,3 +16,9 @@ interface SubjectDTO {
     val slug: String
     val spacedRepetitionSystemId: Int
 }
+
+data class SubjectDTOWrapper(
+    val id: Int,
+    val type: String,
+    val data: SubjectDTO,
+)

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="features_levels_tier_pleasant">快 PLEASANT</string>
+    <string name="features_levels_tier_painful">苦 PAINFUL</string>
+    <string name="features_levels_tier_death">死 DEATH</string>
+    <string name="features_levels_tier_hell">地獄 HELL</string>
+    <string name="features_levels_tier_paradise">天国 PARADISE</string>
+    <string name="features_levels_tier_reality">現実 REALITY</string>
+</resources>

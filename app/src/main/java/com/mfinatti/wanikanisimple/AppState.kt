@@ -14,6 +14,7 @@ import com.mfinatti.wanikanisimple.navigation.TopLevelDestination
 import kotlinx.coroutines.CoroutineScope
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import com.mfinatti.wanikanisimple.home.navigation.navigateToHome
+import com.mfinatti.wanikanisimple.levels.navigation.navigateToLevels
 
 @SuppressLint("ComposableNaming")
 @Composable
@@ -54,7 +55,7 @@ class AppState(
 
         when (topLevelDestination) {
             TopLevelDestination.home -> navController.navigateToHome()
-            TopLevelDestination.levels -> TODO()
+            TopLevelDestination.levels -> navController.navigateToLevels()
         }
     }
 }

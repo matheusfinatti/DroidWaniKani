@@ -1,7 +1,5 @@
 package com.mfinatti.wanikanisimple.core.network.adapters
 
-import android.util.Log
-import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.core.network.data.ResponseDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.PreferencesDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.subject.KanaVocabularyDTO
@@ -39,6 +37,7 @@ class ResponseAdapter(
         }
 
         // Parse other fields in `ResponseDTO`
+        val id = jsonMap["id"] as Int
         val obj = jsonMap["object"] as String
         val url = jsonMap["url"] as String
         val dataUpdatedAt = jsonMap["data_updated_at"] as String
@@ -48,11 +47,12 @@ class ResponseAdapter(
         val preferences = jsonMap["preferences"] as? PreferencesDTO
 
         return ResponseDTO(
+            id = id,
             obj = obj,
             url = url,
             dataUpdatedAt = dataUpdatedAt,
             data = data ?: throw JsonDataException("Unable to parse `data` field"),
-            preferences = preferences
+            preferences = preferences,
         )
     }
 

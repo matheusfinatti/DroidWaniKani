@@ -64,7 +64,7 @@ fun DroidWaniKaniApp(
                         onClick = {
                             appState.coroutineScope.launch { drawerState.close() }
                             selectedDestination = destination
-                            appState.navigateToTopLevelDestination(TopLevelDestination.home)
+                            appState.navigateToTopLevelDestination(destination)
                         }
                     )
                 }

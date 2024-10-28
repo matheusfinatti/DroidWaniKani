@@ -7,6 +7,7 @@ import com.mfinatti.wanikanisimple.core.network.data.CollectionDTO
 import com.mfinatti.wanikanisimple.core.network.data.ResponseDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.UserDTO
 import com.mfinatti.wanikanisimple.core.network.data.model.subject.SubjectDTO
+import com.mfinatti.wanikanisimple.core.network.data.model.subject.SubjectDTOWrapper
 import com.mfinatti.wanikanisimple.core.network.data.model.summary.SummaryDTO
 import retrofit2.Response
 import retrofit2.http.GET
@@ -47,12 +48,18 @@ internal class RetrofitWKService(
             }
         }
 
-    override suspend fun getSubjects(level: Int): Result<List<SubjectDTO>> =
+    override suspend fun getSubjects(level: Int): Result<List<SubjectDTOWrapper>> =
         runCatching {
             val response = wkApi.getSubjects(level)
             if (response.isSuccessful) {
                 val body = response.body() ?: error("Empty response body")
-                val subjects = body.data.map { it.data }
+                val subjects = body.data.map { item ->
+                    SubjectDTOWrapper(
+                        id = item.id ?: error("Null item ID"),
+                        type = item.obj,
+                        data = item.data
+                    )
+                }
                 subjects
             } else {
                 val error = response.errorBody()?.string() ?: "Empty error body"

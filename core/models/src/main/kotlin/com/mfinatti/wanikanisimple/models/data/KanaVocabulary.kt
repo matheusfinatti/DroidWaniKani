@@ -14,7 +14,7 @@ data class KanaVocabulary(
     val lessonPosition: Int,
     val level: Level,
     val meaningMnemonic: String,
-    val meaning: List<Meaning>,
+    val meanings: List<Meaning>,
     val slug: String,
     val spacedRepetitionSystemId: Int,
     val contextSentences: List<ContextSentence>,
