@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -159,17 +160,16 @@ fun RadicalBox(radical: RadicalItem) {
 
 @Composable
 fun KanjiBox(kanji: KanjiItem) {
-    Box(
+    Column(
         modifier = Modifier
             .size(64.dp)
             .background(color = Kanji, shape = RoundedCornerShape(4.dp)),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
     ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(kanji.characters, color = Color.White, fontSize = 24.sp)
-            Text(kanji.reading, color = Color.White, fontSize = 8.sp)
-            Text(kanji.meaning, color = Color.White, fontSize = 8.sp)
-        }
+        Text(kanji.characters, color = Color.White, fontSize = 24.sp, lineHeight = 24.sp)
+        Text(kanji.reading, color = Color.White, fontSize = 8.sp, lineHeight = 8.sp)
+        Text(kanji.meaning, color = Color.White, fontSize = 8.sp, lineHeight = 8.sp)
     }
 }
 
@@ -177,16 +177,25 @@ fun KanjiBox(kanji: KanjiItem) {
 fun VocabularyBox(vocabulary: VocabularyItem) {
     Box(
         modifier = Modifier
-            .height(42.dp)
+            .height(48.dp)
             .fillMaxWidth()
             .background(color = Vocabulary, shape = RoundedCornerShape(4.dp)),
         contentAlignment = Alignment.Center,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(vocabulary.characters, Modifier.weight(0.5f).padding(4.dp), color = Color.White, fontSize = 20.sp)
-            Column(horizontalAlignment = Alignment.End, modifier = Modifier.weight(0.5f).padding(4.dp)) {
-                Text(vocabulary.reading, color = Color.White, fontSize = 8.sp)
-                Text(vocabulary.meaning, color = Color.White, fontSize = 8.sp)
+            Text(
+                text = vocabulary.characters,
+                modifier = Modifier.weight(0.5f).padding(4.dp),
+                color = Color.White,
+                fontSize = 20.sp
+            )
+            Column(
+                modifier = Modifier.fillMaxHeight().weight(0.5f).padding(4.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+            ) {
+                Text(vocabulary.reading, color = Color.White, fontSize = 10.sp, lineHeight = 10.sp)
+                Text(vocabulary.meaning, color = Color.White, fontSize = 10.sp, lineHeight = 10.sp)
             }
         }
     }
@@ -196,15 +205,24 @@ fun VocabularyBox(vocabulary: VocabularyItem) {
 fun KanaVocabularyBox(vocabulary: KanaVocabularyItem) {
     Box(
         modifier = Modifier
-            .height(42.dp)
+            .height(48.dp)
             .fillMaxWidth()
             .background(color = Vocabulary, shape = RoundedCornerShape(4.dp)),
         contentAlignment = Alignment.Center,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Text(vocabulary.characters, Modifier.weight(0.7f).padding(4.dp), color = Color.White, fontSize = 24.sp)
-            Column(horizontalAlignment = Alignment.End, modifier = Modifier.weight(0.3f).padding(4.dp)) {
-                Text(vocabulary.meaning, color = Color.White, fontSize = 10.sp)
+            Text(
+                text = vocabulary.characters,
+                modifier = Modifier.weight(0.5f).padding(4.dp),
+                color = Color.White,
+                fontSize = 24.sp,
+            )
+            Column(
+                modifier = Modifier.weight(0.5f).padding(4.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.End,
+            ) {
+                Text(vocabulary.meaning, color = Color.White, fontSize = 12.sp)
             }
         }
     }
