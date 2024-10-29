@@ -2,6 +2,7 @@ package com.mfinatti.wanikanisimple.levels.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mfinatti.wanikanisimple.models.data.Subject
 import com.mfinatti.wanikanisimple.models.types.Level
 import com.mfinatti.wanikanisimple.models.types.SubscriptionType
 import com.mfinatti.wanikanisimple.subject.domain.SubjectRepository
@@ -12,6 +13,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 
 /**
@@ -26,15 +28,23 @@ class LevelViewModel @AssistedInject constructor(
     /**
      * State flow for the level data.
      */
-    val subjectState: StateFlow<SubjectState> = subjectRepository
+    val subjectState: StateFlow<LevelUiModel> = subjectRepository
         .fetchSubjects(
             Level.from(
                 level,
                 SubscriptionType.lifetime
-            )   .getOrThrow()
-        ).stateIn(
+            ).getOrThrow()
+        ).map { state ->
+            when (state) {
+                is SubjectState.Error -> LevelUiModel.Error(state.message)
+                SubjectState.Loading -> LevelUiModel.Loading
+                is SubjectState.Success -> LevelUiModel.Subjects(
+                    state.subjects.map(Subject::toSubjectItem)
+                )
+            }
+        }.stateIn(
             scope = viewModelScope,
-            initialValue = SubjectState.Loading,
+            initialValue = LevelUiModel.Loading,
             started = SharingStarted.WhileSubscribed(5_000)
         )
 
@@ -42,4 +52,10 @@ class LevelViewModel @AssistedInject constructor(
     interface Factory {
         fun create(level: Int): LevelViewModel
     }
+}
+
+sealed interface LevelUiModel {
+    data object Loading : LevelUiModel
+    data class Subjects(val subjects: List<SubjectItem>) : LevelUiModel
+    data class Error(val error: String?) : LevelUiModel
 }

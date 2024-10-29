@@ -6,4 +6,8 @@
     <string name="features_levels_tier_hell">地獄 HELL</string>
     <string name="features_levels_tier_paradise">天国 PARADISE</string>
     <string name="features_levels_tier_reality">現実 REALITY</string>
+
+    <string name="features_levels_box_radicals">RADICALS</string>
+    <string name="features_levels_box_kanji">KANJI</string>
+    <string name="features_levels_box_vocabulary">VOCABULARY</string>
 </resources>

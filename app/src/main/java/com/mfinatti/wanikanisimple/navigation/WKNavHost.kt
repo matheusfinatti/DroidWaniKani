@@ -8,7 +8,9 @@ import androidx.navigation.compose.rememberNavController
 import com.mfinatti.wanikanisimple.Destinations
 import com.mfinatti.wanikanisimple.home.navigation.homeScreen
 import com.mfinatti.wanikanisimple.home.navigation.navigateToHome
+import com.mfinatti.wanikanisimple.levels.navigation.levelScreen
 import com.mfinatti.wanikanisimple.levels.navigation.levelsScreen
+import com.mfinatti.wanikanisimple.levels.navigation.navigateToLevel
 import com.mfinatti.wanikanisimple.login.navigation.loginScreen
 import com.mfinatti.wanikanisimple.login.navigation.navigateToLogin
 import com.mfinatti.wanikanisimple.splash.navigation.splashScreen
@@ -29,6 +31,7 @@ fun WKNavHost(
         )
         loginScreen(onLoginSuccess = navController::navigateToHome)
         homeScreen(modifier)
-        levelsScreen(modifier)
+        levelsScreen(modifier, onLevelSelected = navController::navigateToLevel)
+        levelScreen(modifier)
     }
 }

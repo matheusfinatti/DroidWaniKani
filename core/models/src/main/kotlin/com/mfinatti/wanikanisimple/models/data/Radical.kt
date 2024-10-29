@@ -10,7 +10,7 @@ data class Radical(
     val characters: String?,
     val createdAt: Instant,
     val documentUrl: String,
-    val hiddenAt: Instant,
+    val hiddenAt: Instant?,
     val lessonPosition: Int,
     val level: Level,
     val meaningMnemonic: String,

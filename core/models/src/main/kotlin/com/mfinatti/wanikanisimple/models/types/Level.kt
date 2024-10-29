@@ -8,7 +8,7 @@ value class Level private constructor(val value: Int) {
             if (value in 1..subscriptionType.maxLevel.value) {
                 Result.success(Level(value))
             } else {
-                Result.failure(IllegalArgumentException("Level must be between 1 and ${subscriptionType.maxLevel}"))
+                Result.failure(IllegalArgumentException("Level must be between 1 and ${subscriptionType.maxLevel.value}, current level: $value"))
             }
 
         val UnsubscribedMaxLevel = Level(3)

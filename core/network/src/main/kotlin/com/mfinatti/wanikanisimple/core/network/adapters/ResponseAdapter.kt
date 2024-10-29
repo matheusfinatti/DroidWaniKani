@@ -37,7 +37,7 @@ class ResponseAdapter(
         }
 
         // Parse other fields in `ResponseDTO`
-        val id = jsonMap["id"] as Int
+        val id = jsonMap["id"] as Double
         val obj = jsonMap["object"] as String
         val url = jsonMap["url"] as String
         val dataUpdatedAt = jsonMap["data_updated_at"] as String
@@ -47,7 +47,7 @@ class ResponseAdapter(
         val preferences = jsonMap["preferences"] as? PreferencesDTO
 
         return ResponseDTO(
-            id = id,
+            id = id.toInt(),
             obj = obj,
             url = url,
             dataUpdatedAt = dataUpdatedAt,

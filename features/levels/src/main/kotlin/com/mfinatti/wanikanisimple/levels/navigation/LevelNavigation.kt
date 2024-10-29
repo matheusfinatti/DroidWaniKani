@@ -5,6 +5,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.mfinatti.wanikanisimple.Destinations
+import com.mfinatti.wanikanisimple.levels.ui.LevelScreen
 import com.mfinatti.wanikanisimple.levels.ui.LevelsScreen
 
 fun NavController.navigateToLevels() =
@@ -12,8 +13,23 @@ fun NavController.navigateToLevels() =
 
 fun NavGraphBuilder.levelsScreen(
     modifier: Modifier = Modifier,
+    onLevelSelected: (Int) -> Unit = {}
 ) {
     composable(route = Destinations.Levels) {
-        LevelsScreen(modifier)
+        LevelsScreen(modifier) { level ->
+            onLevelSelected(level)
+        }
+    }
+}
+
+fun NavController.navigateToLevel(level: Int) =
+    navigate(route = "level/${level}")
+
+fun NavGraphBuilder.levelScreen(
+    modifier: Modifier = Modifier,
+) {
+    composable(route = "level/{level}") { navBackStackEntry ->
+        val level = navBackStackEntry.arguments?.getString("level")?.toIntOrNull() ?: error("Invalid level")
+        LevelScreen(level = level, modifier = modifier)
     }
 }

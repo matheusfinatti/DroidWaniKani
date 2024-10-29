@@ -1,5 +1,7 @@
 package com.mfinatti.wanikanisimple.subject.data
 
+import android.util.Log
+import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
 import com.mfinatti.wanikanisimple.models.types.Level
 import com.mfinatti.wanikanisimple.subject.data.mapper.toSubject
@@ -27,6 +29,7 @@ class SubjectRepositoryImpl @Inject constructor(
                 }
             },
             onFailure = { error ->
+                Log.e(Consts.TAG, "Error", error)
                 emit(SubjectState.Error(error.message))
             }
         )

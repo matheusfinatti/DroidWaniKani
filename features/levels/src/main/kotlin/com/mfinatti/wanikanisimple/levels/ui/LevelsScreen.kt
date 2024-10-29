@@ -39,7 +39,8 @@ fun LevelsScreen(
                 Text(stringResource(tier.labelRes))
             }
             items(tier.levels.count()) {
-                LevelBox(tier.levels.start + it, onClick = { onLevelClick(it) })
+                val actualLevel = tier.levels.start + it
+                LevelBox(actualLevel, onClick = { onLevelClick(actualLevel) })
             }
         }
     }
