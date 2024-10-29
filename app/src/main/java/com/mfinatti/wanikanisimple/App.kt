@@ -110,6 +110,7 @@ fun DroidWaniKaniApp(
                 },
             ) { innerPadding ->
                 WKNavHost(
+                    appState = appState,
                     navController = appState.navController,
                     modifier = Modifier.padding(innerPadding)
                 )

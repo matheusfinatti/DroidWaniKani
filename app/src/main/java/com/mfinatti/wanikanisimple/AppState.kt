@@ -55,8 +55,8 @@ class AppState(
         }
 
         when (topLevelDestination) {
-            TopLevelDestination.home -> navController.navigateToHome()
-            TopLevelDestination.levels -> navController.navigateToLevels()
+            TopLevelDestination.home -> navController.navigateToHome(topLevelNavOptions)
+            TopLevelDestination.levels -> navController.navigateToLevels(topLevelNavOptions)
         }
     }
 
