@@ -4,6 +4,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DrawerValue
@@ -85,22 +87,32 @@ fun DroidWaniKaniApp(
                                 Text("WaniKani")
                             },
                             navigationIcon = {
-                                IconButton(onClick = {
-                                    appState.coroutineScope.launch { drawerState.open() }
-                                }) {
-                                    Icon(
-                                        imageVector = Icons.Filled.Menu,
-                                        contentDescription = null,
-                                    )
+                                if (appState.shouldShowUpNavigation()) {
+                                    IconButton(onClick = { appState.navController.popBackStack() }) {
+                                        Icon(
+                                            imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                            contentDescription = null,
+                                        )
+                                    }
+                                } else {
+                                    IconButton(onClick = {
+                                        appState.coroutineScope.launch { drawerState.open() }
+                                    }) {
+                                        Icon(
+                                            imageVector = Icons.Filled.Menu,
+                                            contentDescription = null,
+                                        )
+                                    }
                                 }
-                            }
+                            },
                         )
                     }
                 },
             ) { innerPadding ->
                 WKNavHost(
                     navController = appState.navController,
-                    modifier = Modifier.padding(innerPadding))
+                    modifier = Modifier.padding(innerPadding)
+                )
 
             }
         }

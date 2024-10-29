@@ -1,6 +1,7 @@
 package com.mfinatti.wanikanisimple
 
 import android.annotation.SuppressLint
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
@@ -58,4 +59,9 @@ class AppState(
             TopLevelDestination.levels -> navController.navigateToLevels()
         }
     }
+
+    @Composable
+    fun shouldShowUpNavigation(): Boolean =
+        currentDestination != null &&
+                currentDestination?.route !in TopLevelDestination.entries.map { it.route }
 }
