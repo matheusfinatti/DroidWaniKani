@@ -1,5 +1,6 @@
 package com.mfinatti.wanikanisimple.core.network.di
 
+import android.content.Context
 import android.content.SharedPreferences
 import com.mfinatti.wanikanisimple.core.network.RemoteWKDataSource
 import com.mfinatti.wanikanisimple.core.network.adapters.ResponseAdapter
@@ -11,11 +12,14 @@ import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
+import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import java.io.File
 import javax.inject.Singleton
 
 @Module
@@ -24,7 +28,10 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(prefs: SharedPreferences): OkHttpClient {
+    fun provideOkHttpClient(
+        @ApplicationContext context: Context,
+        prefs: SharedPreferences
+    ): OkHttpClient {
         val loggingInterceptor = HttpLoggingInterceptor()
         loggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
 
@@ -32,6 +39,10 @@ object NetworkModule {
         val apiVersionInterceptor = ApiVersionInterceptor()
 
         return OkHttpClient.Builder()
+            .cache(Cache(
+                directory = File(context.cacheDir, "http_cache"),
+                maxSize = 50L * 1024L * 1024L // 50MiB
+            ))
             .addInterceptor(loggingInterceptor)
             .addInterceptor(apiKeyInterceptor)
             .addInterceptor(apiVersionInterceptor)
