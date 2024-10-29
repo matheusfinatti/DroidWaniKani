@@ -1,8 +1,6 @@
 package com.mfinatti.wanikanisimple.login.data
 
 import android.content.SharedPreferences
-import android.util.Log
-import com.mfinatti.wanikanisimple.Consts
 import com.mfinatti.wanikanisimple.Keys
 import com.mfinatti.wanikanisimple.login.data.mapper.toEntity
 import com.mfinatti.wanikanisimple.login.data.mapper.toUser
@@ -27,7 +25,6 @@ class UserStorage @Inject constructor(
         userId
     )
         .map { entity ->
-            Log.d(Consts.TAG, "$entity")
             entity.toUser().getOrThrow()
         }
 
@@ -41,14 +38,14 @@ class UserStorage @Inject constructor(
         preferences.edit()
             .putString(Keys.USER_ID, user.id.value)
             .apply()
+
+        _userIdFlow.emit(user.id.value)
     }
 
     fun storeUserApiKey(apiKey: String) {
         preferences.edit()
             .putString(Keys.API_KEY, apiKey)
             .apply()
-
-        _userIdFlow.value = apiKey
     }
 
     fun getUserApiKey(): String? =

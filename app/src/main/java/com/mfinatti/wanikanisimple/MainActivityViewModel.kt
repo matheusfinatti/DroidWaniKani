@@ -21,6 +21,7 @@ class MainActivityViewModel @Inject constructor(
 ) : ViewModel() {
 
     val user: StateFlow<User?> = userStorage.userIdFlow.flatMapLatest { userId ->
+        Log.d("MATHEUS", "userId: $userId")
         if (userId != null) {
             userStorage.getUser(userId)
         } else {
@@ -33,6 +34,6 @@ class MainActivityViewModel @Inject constructor(
     )
 
     companion object {
-        private const val STOP_TIMEOUT_MS = 5_000L
+        private const val STOP_TIMEOUT_MS = 15_000L
     }
 }
